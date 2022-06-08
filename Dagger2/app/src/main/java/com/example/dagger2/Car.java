@@ -7,7 +7,18 @@ import javax.inject.Inject;
 public class Car {
 
     private static final String TAG = "Car";
-    private Enigine enigine;
+
+
+//here we are doing all the three injections so the sequence is : -
+//    constructor -> field -> method
+
+//    and if we would not make the constructor injection then we have to call the field and method injection manually
+
+    //    the field injection
+    @Inject
+    Enigine enigine;
+
+
     private Wheels wheels;
 
 //    dependecy injection means that the class will not initilize the variables instead of that we will pass those variablbe to the class
@@ -15,12 +26,23 @@ public class Car {
 
 //    this annotation is standardize in JSR 330
 
+
+    //    the constructor injection
     @Inject
-    public Car(Enigine enigine, Wheels wheels) {
-        this.enigine = enigine;
+    public Car(Wheels wheels) {
         this.wheels = wheels;
+        Log.d(TAG, "Car: constructor injection...");
     }
-    public void drive (){
+
+
+    //the method injection
+    @Inject
+    public void methodInject(Remote remote) {
+        remote.setListenere();
+    }
+
+
+    public void drive() {
         Log.d(TAG, "drive: ....");
     }
 
