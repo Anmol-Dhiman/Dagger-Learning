@@ -2,20 +2,24 @@ package com.example.dagger2;
 
 import android.util.Log;
 
+import javax.inject.Inject;
+import javax.inject.Named;
 
 
 public class DieselEngine implements Engine {
 
     private int horsePower;
+    private int engineCapacity;
 
-
-    public DieselEngine(int horsePower) {
+    @Inject
+    public DieselEngine(int horsePower, @Named("engine capacity") int engineCapacity) {
         this.horsePower = horsePower;
+        this.engineCapacity = engineCapacity;
     }
 
 
     @Override
     public void start() {
-        Log.d("Car", "diesel engine starts........");
+        Log.d("Car", "diesel engine starts........ " + horsePower + " engine capacity " + engineCapacity);
     }
 }
