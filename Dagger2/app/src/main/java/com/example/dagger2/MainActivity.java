@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
 //        ***when we do the constructor injection then only we get the field Injection and the method injection as well
         carComponent.inject(this);
+
         car.drive();
 
 

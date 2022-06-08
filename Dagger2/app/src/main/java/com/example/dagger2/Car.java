@@ -16,7 +16,7 @@ public class Car {
 
     //    the field injection
     @Inject
-    Enigine enigine;
+    Engine engine;
 
 
     private Wheels wheels;
@@ -30,6 +30,7 @@ public class Car {
     //    the constructor injection
     @Inject
     public Car(Wheels wheels) {
+
         this.wheels = wheels;
         Log.d(TAG, "Car: constructor injection...");
     }
@@ -43,6 +44,7 @@ public class Car {
 
 
     public void drive() {
+        engine.start();
         Log.d(TAG, "drive: ....");
     }
 
